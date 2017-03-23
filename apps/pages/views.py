@@ -39,10 +39,8 @@ class StaticSitemap(Sitemap):
     changefreq = 'monthly'
 
     def items(self):
-        return ['home', 'login_custom', 'signup_custom',
-                'user_address','user_profile','logout_custom','post_list'
-                ,'base_contact','base_introduction','base_payment','products',
-                'orders','cart'
+        return ['home', 'mat_ong', 'sua_ong_chua',
+                'phan_hoa','tinh_bot_nghe','bang_gia'
                 ]
 
     def location(self, item):

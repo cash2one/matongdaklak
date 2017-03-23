@@ -11,7 +11,6 @@ from apps.pages.views import (
     BangGiaView
 )
 
-from allauth.account.views import LogoutView
 from apps.posts.views import PostDetailView, PostListView
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
