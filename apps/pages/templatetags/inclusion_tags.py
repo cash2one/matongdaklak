@@ -7,15 +7,15 @@ register = template.Library()
 
 
 @register.inclusion_tag('theme_lotus/pages/inclusion_tags/_head_menu.html')
-def head_menu():
-    return {}
+def head_menu(request):
+    return {'request':request}
 @register.inclusion_tag('theme_lotus/pages/inclusion_tags/_order_form.html')
 def order_form():
     return {}
 
 @register.inclusion_tag('theme_lotus/pages/inclusion_tags/_latest_post.html')
 def latest_post():
-    posts = Post.objects.filter(active=True).order_by('-timestamp')[:6]
+    posts = Post.objects.filter(active=True).order_by('-timestamp')[:10]
     return {'posts':posts}
 
 @register.inclusion_tag('theme_lotus/pages/inclusion_tags/_seo.html')

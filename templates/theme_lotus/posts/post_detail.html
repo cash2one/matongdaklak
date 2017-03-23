@@ -1,94 +1,45 @@
 {% extends "theme_lotus/layout.html" %}
 {% load staticfiles %}
 {% load inclusion_tags %}
-{% load el_pagination_tags %}
-{% block breakcrumb %}
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="{% url 'home' %}">Trang chủ</a></li>
-                    <li><a href="{% url 'post_list' %}">Về tây nguyên</a></li>
-                    <li class='active'>{{ object.title }}</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
-{% endblock breakcrumb %}
-{% block seo %}
-    {% seo_post object %}
-{% endblock seo %}
+{% load simple_tags %}
 {% block content %}
+    <div id="page" class="hfeed site no-touch">
 
-    <div class="body-content">
-        <div class="container">
-            <div class="row">
-                <div class="blog-page">
-                    <div class="col-md-9">
-                        <div class="blog-post blog-post-detail wow fadeInUp" style="margin-bottom: 20px">
-                            <h1>{{ object.title }}</h1>
-                            <span class="author">Đặc sản tây nguyên VN</span>
-                            <span class="date-time">18/06/2016</span>
+         {% head_menu request %}
+        <div id="content" class="site-content container">
+            <div id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+                <main id="main" class="site-main">
+
+
+                    <article id="post-1474"
+                             class="post-1474 post type-post status-publish format-standard has-post-thumbnail hentry category-bang-gia-san-pham tag-bang-gia-mat-ong tag-bang-gia-mat-ong-hoa-thien-nhien tag-gia-mat-ong-nguyen-chat">
+                        <header class="entry-header page-header">
+                            <h1 class="entry-title ">{{ object.title }}</h1>
+                        </header>
+
+                        <div class="entry-content">
+                            {% order_form %}
                             {{ object.content|safe }}
-
-{#                            <div class="social-media">#}
-{#                                <span><strong>Share bài viết</strong>:</span>#}
-{#                                <a href="#"><i class="fa fa-facebook"></i></a>#}
-{#                                <a href="#"><i class="fa fa-twitter"></i></a>#}
-{#                                <a href="#"><i class="fa fa-linkedin"></i></a>#}
-{#                            </div>#}
                         </div>
-                    <div class="row product-tag">
-                                <div class="col-md-12 tag-list">
-                                        <a class="item" title="Phone"><i class="fa fa-tag" aria-hidden="true"></i> Tags</a>
-                                    {% for tag in post.tags.all %}
-                                        <a class="item" title="{{ tag.name }}" href="{% url 'products' %}?q={{ tag.name }}">{{ tag.name }}</a>
-                                    {% endfor %}
-                                    </div>
-                    </div>
-
-                        <section class="section latest-blog outer-bottom-vs wow fadeInUp">
-                            <h3 class="section-title">Bài viết liên quan</h3>
-                            <div class="blog-slider-container outer-top-xs">
-                                <div class="owl-carousel blog-slider custom-carousel">
-
-                                    {% for post in related %}
-                                        <div class="item">
-                                            <div class="blog-post">
-                                                <div class="blog-post-image">
-                                                    <div class="image"><a href="{{ post.get_absolute_url }}"><img
-                                                            src="{{ post.image_thumb3.url }}" alt=""></a></div>
-                                                </div>
-                                                <!-- /.blog-post-image -->
-
-                                                <div class="blog-post-info text-left">
-                                                    <h3 class="name"><a href="#">{{ post.title }}</a></h3>
-                                                </div>
-                                                <!-- /.blog-post-info -->
-
-                                            </div>
-                                            <!-- /.blog-post -->
-                                        </div>
-                                    {% endfor %}
-
-                                </div>
-                                <!-- /.owl-carousel -->
-                            </div>
-                            <!-- /.blog-slider-container -->
-                        </section>
-                    </div>
-                    <div class="col-md-3 sidebar">
 
 
-                        <div class="sidebar-module-container hidden-xs">
-                            {% left_nav request %}
-                            {% hot_products %}
-                            {% latest_post %}
+                    </article><!-- #post-## -->
+
+                    <nav class="navigation post-navigation" role="navigation">
+                        <div class="nav-links">
+                            <div class="nav-next"><a href="{% url 'sua_ong_chua' %}" rel="next">Sữa ong chúa tươi <i
+                                    class="fa fa-chevron-right"></i></a></div>
                         </div>
-                    </div>
-                </div>
+                    </nav>
+
+                </main>
             </div>
+            {% latest_post %}
+
         </div>
+
     </div>
+
+
 
 {% endblock content %}

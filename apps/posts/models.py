@@ -32,11 +32,11 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to=upload_location)
     image_thumb1 = ImageSpecField(source='image',
-                                      processors=[ResizeToFill(808, 418)],
+                                      processors=[ResizeToFill(375, 240)],
                                       format='JPEG',
                                       options={'quality': 100})
     image_thumb2 = ImageSpecField(source='image',
-                                      processors=[ResizeToFill(223, 115)],
+                                      processors=[ResizeToFill(50, 50)],
                                       format='JPEG',
                                       options={'quality': 100})
     image_thumb3 = ImageSpecField(source='image',
@@ -63,7 +63,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"slug": self.slug})
+        return reverse("mat_ong_detail", kwargs={"slug": self.slug})
     
     class Meta:
         ordering = ["-timestamp", "-updated"]

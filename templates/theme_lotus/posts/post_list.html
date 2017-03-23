@@ -1,69 +1,61 @@
 {% extends "theme_lotus/layout.html" %}
 {% load staticfiles %}
 {% load inclusion_tags %}
+{% load simple_tags %}
 {% load el_pagination_tags %}
-{% block breakcrumb %}
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="{% url 'home' %}">Trang chủ</a></li>
-                    <li class='active'>Về tây nguyên</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
-{% endblock breakcrumb %}
-{% block seo %}
-    {% seo_page 'article' %}
-{% endblock seo %}
 {% block content %}
+    <div id="page" class="hfeed site no-touch">
 
-    <div class="body-content">
-        <div class="container">
-            <div class="row">
-                {% paginate object_list %}
-                <div class="blog-page">
-
-                    <div class="col-md-9">
-
-                        <div class="row">
-                            {% for post in object_list %}
-                                <div class="col-md-6" style="margin-bottom: 10px;">
-                                    <div class="item">
-                                        <div class="blog-post">
-                                            <div class="blog-post-image">
-                                                <div class="image"><a href="{{ post.get_absolute_url }}"><img
-                                                        src="{{ post.image_thumb3.url }}" alt="" class="img-responsive"></a>
-                                                </div>
-                                            </div>
-                                            <!-- /.blog-post-image -->
-
-                                            <div class="blog-post-info text-left">
-                                                <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                                                </h1>
-                                                <span class="author">Đặc sản tây nguyên VN</span>
-                                                <span class="date-time">14/06/2014</span>
-                                                <p class="text">{{ post.short_content }}...</p>
-                                                <a href="{{ post.get_absolute_url }}" class="lnk btn btn-primary">Xem
-                                                    thêm</a></div>
-                                            <!-- /.blog-post-info -->
-
-                                        </div>
-                                        <!-- /.blog-post -->
-                                    </div>
-                                </div>
-                                {% cycle '' '</div><div class="row">' %}
-                            {% endfor %}
+        {% head_menu request %}
+        <div id="content" class="site-content container">
+            <section id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+                <main id="main" class="site-main" role="main">
 
 
+                    <header class="page-header">
+                        <h1 class="page-title">
+                            Mật ong </h1>
+                    </header><!-- .page-header -->
+                    {% paginate object_list %}
+                    {% for post in object_list %}
+                    <article id="post-1453"
+                             class="post-1453 post type-post status-publish format-standard has-post-thumbnail hentry category-mat-ong tag-mat-ong tag-mat-ong-hoa-tram-u-minh tag-mat-ong-nguyen-chat">
+                        <header class="entry-header page-header">
+                            <h2 class="entry-title"><a href="{{ post.get_absolute_url }}" rel="bookmark">{{ post.title }}</a></h2>
+                            <div class="entry-meta">
+                                <span class="cat-links">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <a href="mat-ong.html" rel="category tag">Mật ong daklak</a>
+                                </span>
+                                <span class="posted-on">
+                                    <i class="fa fa-calendar"></i>
+                                    <a href="#" rel="bookmark">
+                                        <time class="entry-date published">{{ post.timestamp|date:"d/m/Y" }}</time>
+                                    </a>
+                                </span>
+                            </div>
+                        </header><!-- .entry-header -->
+
+                        <div class="entry-content">
+
+                            <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+                                <img width="650" height="410" alt="{{ post.title }}" src="{{ post.image_thumb1.url }}" class="thumbnail col-sm-6 wp-post-image" alt=""/> </a>
+                            <div class="col-sm-6">
+                               {{ post.short_content }}
+                            </div>
+                            <p>
+                                <a class="btn btn-default read-more" href="{{ post.get_absolute_url }}">
+                                    Xem thêm
+                                    <i class="fa fa-chevron-right"></i></a>
+                            </p>
                         </div>
-                        <div class="clearfix blog-pagination filters-container  wow fadeInUp"
-                             style="padding:0px; background:none; box-shadow:none; margin-top:15px; border:none">
 
-                            <div class="text-right">
-                                {% get_pages %}
-                                <div class="pagination-container">
+                        <hr class="section-divider">
+                    </article><!-- #post-## -->
+                    {% endfor %}
+                 {% get_pages %}
+                {%  if pages|length > 1 %}
+                            <div class="pagination-container" style="text-align: center">
                                     <ul class="list-inline list-unstyled">
                                         <li class="prev"><a href="{{ pages.previous.path }}"><i
                                                 class="fa fa-angle-left"></i></a></li>
@@ -75,22 +67,16 @@
                                                 class="fa fa-angle-right"></i></a></li>
                                     </ul>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-3 sidebar">
+                {% endif %}
 
 
-                        <div class="sidebar-module-container hidden-xs">
-                            {% left_nav request %}
-                            {% hot_products %}
-                            {% latest_post %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </main><!-- #main -->
+            </section><!-- #primary -->
+
         </div>
+
     </div>
+
+
 
 {% endblock content %}

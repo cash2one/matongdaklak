@@ -1,48 +1,62 @@
 {% load staticfiles %}
 {% load simple_tags %}
 <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
+    <div class="container">
+        <div class="navbar-header">
 
 
-                <div id="logo">
-                    <a href="index.html" title="Mật Ong Hoa daklak" rel="home">
-                        <img src="{% get_setting "logo" %}" alt="mật ong daklak"/>
-                    </a>
-                </div><!-- end of #logo -->
+            <div id="logo">
+                <a href="index.html" title="Mật Ong Hoa daklak" rel="home">
+                    <img src="{% get_setting "logo" %}" alt="mật ong daklak"/>
+                </a>
+            </div><!-- end of #logo -->
 
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="text-icon-bar">Danh mục sản phẩm</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="hotline-mobile">
-                Hotline HN: <a href="tel:{% get_setting "phone_hn" %}">{% get_setting "phone_hn" %}</a><br>
-                Hotline SG: <a href="tel:{% get_setting "phone_sg" %}">{% get_setting "phone_sg" %}</a>
-            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="text-icon-bar">Danh mục sản phẩm</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul id="menu-main-menu" class="nav navbar-nav">
-                <li id="menu-item-1393"
-                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1393 active">
-                    <a title="Trang Chủ" href="{% url 'home' %}">Trang Chủ</a></li>
-                <li id="menu-item-1480"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1480"><a
+        <div class="hotline-mobile">
+            Hotline HN: <a href="tel:{% get_setting "phone_hn" %}">{% get_setting "phone_hn" %}</a><br>
+            Hotline SG: <a href="tel:{% get_setting "phone_sg" %}">{% get_setting "phone_sg" %}</a>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul id="menu-main-menu" class="nav navbar-nav">
+            {% url "home" as home %}
+            <li id="menu-item-1393"
+                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1393 {% if request.get_full_path == home %} active {% endif %}">
+                <a title="Trang Chủ" href="{% url 'home' %}">Trang Chủ</a></li>
+
+            {% url "mat_ong" as mat_ong %}
+            <li id="menu-item-1480"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1480 {% if request.get_full_path == mat_ong %} active {% endif %}">
+                <a
                         title="Mật ong" href="{% url 'mat_ong' %}">Mật ong</a></li>
-                <li id="menu-item-1395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1395">
-                    <a title="Phấn Hoa" href="{% url 'phan_hoa' %}">Phấn hoa</a></li>
-                                <li id="menu-item-1396" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1396">
-                    <a title="Sữa ong chúa" href="{% url 'sua_ong_chua' %}">Sữa ong chúa</a></li>
-                                <li id="menu-item-1396" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1396">
-                    <a title="Tinh bột nghệ" href="{% url 'tinh_bot_nghe' %}">Tinh bột nghệ</a></li>
-                <li id="menu-item-1397" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1397">
-                    <a title="Bảng Giá Sản Phẩm" href="{% url 'bang_gia' %}">Bảng giá sản phẩm</a></li>
-                              <li id="menu-item-1397" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1397">
-                    <a title="Tin tức" href="{% url 'post_list' %}">Tin tức</a></li>
-            </ul>
-        </div>
-    </nav><!-- .site-navigation -->
+
+            {% url "phan_hoa" as phan_hoa %}
+            <li id="menu-item-1395"
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1395 {% if request.get_full_path == phan_hoa %} active {% endif %}">
+                <a title="Phấn Hoa" href="{% url 'phan_hoa' %}">Phấn hoa</a></li>
+
+            {% url "sua_ong_chua" as sua_ong_chua %}
+            <li id="menu-item-1396"
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1396  {% if request.get_full_path == sua_ong_chua %} active {% endif %}">
+                <a title="Sữa ong chúa" href="{% url 'sua_ong_chua' %}">Sữa ong chúa</a></li>
+
+            {% url "tinh_bot_nghe" as tinh_bot_nghe %}
+            <li id="menu-item-1396"
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1396  {% if request.get_full_path == tinh_bot_nghe %} active {% endif %}">
+                <a title="Tinh bột nghệ" href="{% url 'tinh_bot_nghe' %}">Tinh bột nghệ</a></li>
+
+            {% url "bang_gia" as bang_gia %}
+            <li id="menu-item-1397"
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1397  {% if request.get_full_path == bang_gia %} active {% endif %}">
+                <a title="Bảng Giá Sản Phẩm" href="{% url 'bang_gia' %}">Bảng giá sản phẩm</a></li>
+        </ul>
+    </div>
+</nav><!-- .site-navigation -->

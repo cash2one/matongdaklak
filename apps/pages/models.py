@@ -49,7 +49,6 @@ PAGE_CHOICES = (
     ('sua_ong_chua', 'SUA_ONG_CHUA'),
     ('tinh_bot_nghe', 'TINH_BOT_NGHE'),
     ('bang_gia', 'BANG_GIA'),
-    ('mat_ong', 'MAT_ONG'),
 )
 class Page(models.Model):
     page = models.CharField(max_length=120, choices=PAGE_CHOICES)

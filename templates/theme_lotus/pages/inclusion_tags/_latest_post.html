@@ -2,57 +2,40 @@
 
 <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
 
-                <div class="widget tabbed">
-                    <div class="tabs-wrapper">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#popular-posts" data-toggle="tab">Xem nhiều</a></li>
-                            <li><a href="#recent" data-toggle="tab">Gần đây</a></li>
-                        </ul>
+    <div class="widget tabbed">
+        <div class="tabs-wrapper">
+            <ul class="nav nav-tabs">
+                <li class="active" style="width: 100.7%;text-align: center;text-decoration: underline;"><a
+                        href="#popular-posts" data-toggle="tab">Bài viết mới nhất</a></li>
+            </ul>
 
-                        <div class="tab-content">
-                            <ul id="popular-posts" class="tab-pane active">
+            <div class="tab-content">
+                <ul id="popular-posts" class="tab-pane active">
 
-
-                                <li>
-                                    <a href="sua-ong-chua-tuoi.html" class="tab-thumb thumbnail" rel="bookmark"
-                                       title="Sữa ong chúa tươi">
-                                        <img width="60" height="60"
-                                             src="http://matonghoathiennhien.vn/wp-content/uploads/2017/03/sua-ong-chua-tuoi-60x60.jpg"
-                                             class="attachment-tab-small size-tab-small wp-post-image" alt=""/> </a>
-                                    <div class="content">
-                                        <a class="tab-entry" href="sua-ong-chua-tuoi.html" rel="bookmark"
-                                           title="Sữa ong chúa tươi">Sữa ong chúa tươi</a>
-                                        <i>
-                                            Th3 11, 2017 </i>
-                                    </div>
-                                </li>
-
-
-                            </ul>
-
-                            <ul id="recent" class="tab-pane">
+                    {% for post in posts %}
+                        <li>
+                            <a href="{{ post.get_absolute_url }}" class="tab-thumb thumbnail" rel="bookmark"
+                               title="{{ post.title }}">
+                                <img width="60" height="60"
+                                     src="{{ post.image_thumb2.url }}"
+                                     class="attachment-tab-small size-tab-small wp-post-image" alt="{{ post.title }}"/>
+                            </a>
+                            <div class="content">
+                                <a class="tab-entry" href="{{ post.get_absolute_url }}" rel="bookmark"
+                                   title="Sữa ong chúa tươi">{{ post.title }}</a>
+                                <i>
+                                    {{ post.timestamp|date:"d/m/Y" }} </i>
+                            </div>
+                        </li>
+                    {% endfor %}
 
 
-                                <li>
-                                    <a href="bang-gia-mat-ong-hoa-thien-nhien.html" class="tab-thumb thumbnail"
-                                       rel="bookmark" title="Bảng giá mật ong hoa thiên nhiên">
-                                        <img width="60" height="60"
-                                             src="http://matonghoathiennhien.vn/wp-content/uploads/2017/03/sua-ong-chua-tuoi-60x60.jpg"
-                                             class="attachment-tab-small size-tab-small wp-post-image" alt=""/> </a>
-                                    <div class="content">
-                                        <a class="tab-entry" href="bang-gia-mat-ong-hoa-thien-nhien.html" rel="bookmark"
-                                           title="Bảng giá mật ong hoa thiên nhiên">Bảng giá mật ong hoa thiên nhiên</a>
-                                        <i>
-                                            Th3 11, 2017 </i>
-                                    </div>
-                                </li>
-
-                            </ul>
+                </ul>
 
 
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
 
 
-            </div><!-- #secondary -->
+</div><!-- #secondary -->

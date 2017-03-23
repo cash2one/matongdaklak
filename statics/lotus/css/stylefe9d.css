@@ -2575,7 +2575,7 @@ a.social_link:hover {
 }
 
 #secondary {
-    padding-top: 20px;
+    padding-top: 60px;
 }
 
 #secondary .widget_archive ul li:before,
@@ -3968,4 +3968,8 @@ a, #infinite-handle span {
 
 .nav-tabs {
     border-bottom: 1px solid rgba(228, 178, 6, 0.8);
+}
+
+.pagination-container ul li.active a{
+    color: #333;
 }

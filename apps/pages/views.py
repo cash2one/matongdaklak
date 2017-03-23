@@ -15,8 +15,6 @@ class HomeView(View):
         return render(request,self.template_name,context)
 
 
-class MatOngView(TemplateView):
-    template_name = 'theme_lotus/pages/mat_ong.html'
 class PhanHoaView(TemplateView):
     template_name = 'theme_lotus/pages/phan_hoa.html'
 class SuaOngChuaView(TemplateView):
