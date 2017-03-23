@@ -1,0 +1,38 @@
+{% load staticfiles %}
+{% load inclusion_tags %}
+<!DOCTYPE html>
+<html lang="vi-VN">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    {% block seo %}
+        {% seo_page 'home' %}
+    {% endblock seo %}
+
+    <meta name="author" content="">
+    <meta name="robots" content="all">
+
+
+    <link rel="shortcut icon" type="image/png" href="{% static "lotus/images/favicon-matonghoa.png" %}"/>
+    <link rel='stylesheet' href='{% static "lotus/css/styles4906.css" %}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{% static "lotus/css/bootstrap.minfe9d.css" %}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{% static "lotus/css/font-awesome.minfe9d.css" %}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{% static "lotus/css/flexsliderfe9d.css" %}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{% static "lotus/css/stylefe9d.css" %}' type='text/css' media='all'/>
+
+    <script type='text/javascript' src='{% static "lotus/js/jqueryb8ff.js" %}'></script>
+    <script type='text/javascript' src='{% static "lotus/js/bootstrap.minfe9d.js" %}'></script>
+    <script type='text/javascript' src='{% static "lotus/js/mainfe9d.js" %}'></script>
+
+</head>
+<body>
+
+
+{% block content %}
+{% endblock content %}
+
+{% include "theme_lotus/_footer.html" %}
+</body>
+</html>

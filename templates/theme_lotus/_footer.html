@@ -1,0 +1,60 @@
+{% load staticfiles %}
+{% load simple_tags %}
+<div id="footer-area">
+    <div class="container footer-inner">
+
+        <div class="footer-widget-area">
+            <div class="col-sm-8 col-md-9 footer-widget" role="complementary">
+                <div id="text-9" class="widget widget_text"><h3 class="widgettitle">Mật Ong Từ Núi Rừng Tây Nguyên </h3>
+                    <div class="textwidget">
+                        <p class="website-address">
+                        <i class="fa fa-home"></i> {% get_setting "address_hn" %}
+                    </p>
+                        <p class="website-address">
+                        <i class="fa fa-home"></i> {% get_setting "address_sg" %}
+                    </p>
+                        <p class="website-email">
+                            <a href="mailto:vivatran.sgn@gmail.com"><i class="fa fa-envelope"></i>{% get_setting "email" %}</a>
+                        </p></div>
+                </div>
+            </div><!-- .widget-area .first -->
+
+            <div class="col-sm-4 col-md-3 footer-widget" role="complementary">
+                <div id="text-8" class="widget widget_text"><h3 class="widgettitle">Kết nối với chúng tôi</h3>
+                    <div class="textwidget">
+                        <ul class="social">
+                            <li>
+                                <a href="{% get_setting "facebook" %}" class="social_link"><i class="fa fa-facebook-square fa-2x"
+                                                                   aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social_link"><i class="fa fa-google-plus-square fa-2x"
+                                                                   aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="skype:{% get_setting "skype" %}?chat" class="social_link"><i class="fa fa-skype fa-2x" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="tel:{% get_setting "phone_hn" %}" class="social_link"><i class="fa fa-phone-square fa-2x"
+                                                                                aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- .widget-area .second -->
+
+        </div>
+    </div>
+
+    <footer id="colophon" class="site-footer">
+        <div class="site-info container">
+            <div id="social" class="social">
+                <ul></ul>
+            </div>
+            <div class="copyright col-md-12">
+                © 2017 <a href="index.html" title="Mật Ong Hoa Daklak">matongdaklak.vn</a>
+            </div>
+        </div><!-- .site-info -->
+        <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+    </footer><!-- #colophon -->
+</div>

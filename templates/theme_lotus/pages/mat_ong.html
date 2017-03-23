@@ -1,0 +1,35 @@
+{% extends "theme_lotus/layout.html" %}
+{% load staticfiles %}
+{% load inclusion_tags %}
+{% load simple_tags %}
+{% block content %}
+    <div id="page" class="hfeed site no-touch">
+
+        {% head_menu %}
+        <div id="content" class="site-content container">
+            <div id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+                <main id="main" class="site-main">
+
+
+                     {% page "mat_ong" %}
+
+                    <nav class="navigation post-navigation" role="navigation">
+                        <div class="nav-links">
+                            <div class="nav-previous"><a href="{% url 'home' %}"
+                                                         rel="prev"><i class="fa fa-chevron-left"></i> Trang chủ </a>
+                            </div>
+                            <div class="nav-next"><a href="{% url 'phan_hoa' %}" rel="next">Phấn hoa <i class="fa fa-chevron-right"></i></a></div>
+                        </div>
+                    </nav>
+
+                </main>
+            </div>
+            {% latest_post %}
+
+        </div>
+
+    </div>
+
+
+
+{% endblock content %}
