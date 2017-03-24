@@ -2,6 +2,7 @@
 from django import template
 
 from apps.pages.models import Setting
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -32,4 +33,6 @@ def get_setting(name):
             return setting.address_sg
         if name == 'skype':
             return setting.skype
+        if name == 'google_analytics':
+            return mark_safe(setting.google_analytics)
     return ''

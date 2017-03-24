@@ -83,6 +83,7 @@ class Setting(models.Model):
     youtube = models.URLField(null=True,blank=True)
     skype = models.CharField(max_length=250, null=True, blank=True)
     domain = models.CharField(max_length=250,null=True,blank=True)
+    google_analytics = models.TextField(null=True,blank=True)
     logo = models.ImageField(upload_to='logo/')
 
 

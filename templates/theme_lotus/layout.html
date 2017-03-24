@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load inclusion_tags %}
+{% load simple_tags %}
 <!DOCTYPE html>
 <html lang="vi-VN">
 <head>
@@ -25,7 +26,9 @@
     <script type='text/javascript' src='{% static "lotus/js/jqueryb8ff.js" %}'></script>
     <script type='text/javascript' src='{% static "lotus/js/bootstrap.minfe9d.js" %}'></script>
     <script type='text/javascript' src='{% static "lotus/js/mainfe9d.js" %}'></script>
-
+    <script>
+        {% get_setting "google_analytics" %}
+    </script>
 </head>
 <body>
 
